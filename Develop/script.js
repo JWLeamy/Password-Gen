@@ -6,6 +6,7 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
+//random number generator that can be applied to all arrays
 function randomchoice(max) {
   return Math.floor(Math.random()*max);
 }
@@ -15,17 +16,16 @@ console.log(uppercase.length) // = 26
 console.log(lowercase.length) // = 26
 console.log(number.length) // = 10
 
+//using the random generator to retrieve a randomly selected value from the chosen array
 var randomspecial = specialchar[randomchoice(32)]
 var randomupper = uppercase[randomchoice(26)]
 var randomlower = lowercase[randomchoice(26)]
 var randomnumber = number[randomchoice(10)]
 
-//based of the preference of the user, I should combine these arrays to make one large array of numbers/uppercase/lowercase/spcial character to choose from. 
-//make a condition to ensure the user actually types a password
 
 function generatePassword(){
   plength = prompt("How many characters would you like you password to be? (Between 8 and 128)") 
-  //make a condition to ensure the user actually types a password
+  //make a condition to ensure the user actually types a number between 8 and 128
   i = parseInt(plength)
   
   if (i < 7 || i > 128) {
@@ -36,6 +36,19 @@ function generatePassword(){
     upper = confirm("Would you like your password to contain upper case letters?")
     lower = confirm("Would you like your password to contain lower case letters?")
     number = confirm("Would you like youur password to contain numbers?")
+
+    if (special) {
+      randomspecial
+    }
+    if (upper) {
+
+    }
+    if (lower) {
+
+    }
+    if (number) {
+
+    }
   }
   
 }
@@ -83,3 +96,5 @@ var sun = su.concat(number)
 var sln = sl.concat(number)
 var uln = ul.concat(number)
 */
+
+//based of the preference of the user, I should combine these arrays to make one large array of numbers/uppercase/lowercase/spcial character to choose from. 
