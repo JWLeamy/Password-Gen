@@ -20,7 +20,7 @@ console.log(number.length) // = 10
 var randomspecial = specialchar[randomchoice(specialchar.length)]
 var randomupper = uppercase[randomchoice(uppercase.length)]
 var randomlower = lowercase[randomchoice(lowercase.length)]
-var randomnumber = number[randomchoice(10)]
+var randomnumber = number[randomchoice(number.length)]
 
 
 function generatePassword(){
@@ -41,8 +41,6 @@ function generatePassword(){
     
     var characters = 0;
     var newpass = []
-
-  // Empty minimums for numbers, lowerCases, upperCases & specialCharacters
 
     while(characters <= i){
 
