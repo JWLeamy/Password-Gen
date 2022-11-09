@@ -16,26 +16,26 @@ console.log(uppercase.length) // = 26
 console.log(lowercase.length) // = 26
 console.log(number.length) // = 10
 
-//using the random generator to retrieve a randomly selected value from the chosen array
+//using the random generator to retrieve a randomly selected value from the chosen array (used later on in lines 49-52)
 var randomspecial = specialchar[randomchoice(specialchar.length)]
 var randomupper = uppercase[randomchoice(uppercase.length)]
 var randomlower = lowercase[randomchoice(lowercase.length)]
-var randomnumber = number[randomchoice(number.length)]
+var randomnumber = number[randomchoice(10)]
 
 
 function generatePassword(){
   plength = prompt("How many characters would you like you password to be? (Between 8 and 128)") 
   //make a condition to ensure the user actually types a number between 8 and 128
-  i = parseInt(plength)
+  i = plength
   
   if (i < 7 || i > 128) {
     window.alert("Your new password must be between 8 and 128 characters")
     generatePassword()
   } 
-    special = confirm("Would you like your password to contain special characters?")
-    upper = confirm("Would you like your password to contain upper case letters?")
-    lower = confirm("Would you like your password to contain lower case letters?")
-    number = confirm("Would you like your password to contain numbers?")
+    ifspecial = confirm("Would you like your password to contain special characters?")
+    ifupper = confirm("Would you like your password to contain upper case letters?")
+    iflower = confirm("Would you like your password to contain lower case letters?")
+    ifnumber = confirm("Would you like your password to contain numbers?")
 
     // setting a minimum number for the specified characters
     
@@ -44,42 +44,38 @@ function generatePassword(){
 
   // Empty minimums for numbers, lowerCases, upperCases & specialCharacters
 
-    while(characters < i){
-      
+    while(characters <= i){
+
       var randomspecial = specialchar[randomchoice(specialchar.length)]
       var randomupper = uppercase[randomchoice(uppercase.length)]
       var randomlower = lowercase[randomchoice(lowercase.length)]
       var randomnumber = number[randomchoice(number.length)]
 
-    if(special){
+    if(ifspecial){
       newpass.push(randomspecial);
       characters++;
     }
-    if (upper) {
+    if (ifupper) {
       newpass.push(randomupper);
       characters++;
     }
-    if (lower) {
+    if (iflower) {
       newpass.push(randomlower);
       characters++;
     }
-    if (number) {
+    if (ifnumber) {
       newpass.push(randomnumber);
       characters++;
     }}
 
-
-    
-    
     newpass = newpass.join("")
-    console.log(characters)
-    console.log(newpass)
-
+    return newpass
+  
   }
   
 
 
-generatePassword()
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
