@@ -17,10 +17,10 @@ console.log(lowercase.length) // = 26
 console.log(number.length) // = 10
 
 //using the random generator to retrieve a randomly selected value from the chosen array
-var randomspecial = specialchar[randomchoice(32)]
-var randomupper = uppercase[randomchoice(26)]
-var randomlower = lowercase[randomchoice(26)]
-var randomnumber = number[randomchoice(10)]
+var randomspecial = specialchar[randomchoice(specialchar.length)]
+var randomupper = uppercase[randomchoice(uppercase.length)]
+var randomlower = lowercase[randomchoice(lowercase.length)]
+var randomnumber = number[randomchoice(number.length)]
 
 
 function generatePassword(){
@@ -31,27 +31,53 @@ function generatePassword(){
   if (i < 7 || i > 128) {
     window.alert("Your new password must be between 8 and 128 characters")
     generatePassword()
-  } else {
+  } 
     special = confirm("Would you like your password to contain special characters?")
     upper = confirm("Would you like your password to contain upper case letters?")
     lower = confirm("Would you like your password to contain lower case letters?")
-    number = confirm("Would you like youur password to contain numbers?")
+    number = confirm("Would you like your password to contain numbers?")
 
-    if (special) {
-      randomspecial
+    // setting a minimum number for the specified characters
+    
+    var characters = 0;
+    var newpass = []
+
+  // Empty minimums for numbers, lowerCases, upperCases & specialCharacters
+
+    while(characters < i){
+      
+      var randomspecial = specialchar[randomchoice(specialchar.length)]
+      var randomupper = uppercase[randomchoice(uppercase.length)]
+      var randomlower = lowercase[randomchoice(lowercase.length)]
+      var randomnumber = number[randomchoice(number.length)]
+
+    if(special){
+      newpass.push(randomspecial);
+      characters++;
     }
     if (upper) {
-
+      newpass.push(randomupper);
+      characters++;
     }
     if (lower) {
-
+      newpass.push(randomlower);
+      characters++;
     }
     if (number) {
+      newpass.push(randomnumber);
+      characters++;
+    }}
 
-    }
+
+    
+    
+    newpass = newpass.join("")
+    console.log(characters)
+    console.log(newpass)
+
   }
   
-}
+
 
 generatePassword()
 
@@ -95,6 +121,13 @@ var sul = su.concat(lowercase)
 var sun = su.concat(number)
 var sln = sl.concat(number)
 var uln = ul.concat(number)
+*/
+
+    /* setting a minimum variable for each type of character to ensure they they are used at least once if the user wants them to
+    var minspecial = "";
+    var minupper = "";
+    var minlower = "";
+    var minnumber = "";
 */
 
 //based of the preference of the user, I should combine these arrays to make one large array of numbers/uppercase/lowercase/spcial character to choose from. 
