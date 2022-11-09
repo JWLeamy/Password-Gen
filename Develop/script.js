@@ -27,14 +27,18 @@ function generatePassword(){
     window.alert("Your new password must be between 8 and 128 characters")
     generatePassword()
   } 
-  if (!Number.isInteger(i)) {
+  
+  else if (!Number.isInteger(i)) {
     window.alert("Please enter a valid number")
     generatePassword()
   }
+
+  else {
     ifspecial = confirm("Would you like your password to contain special characters?")
     ifupper = confirm("Would you like your password to contain upper case letters?")
     iflower = confirm("Would you like your password to contain lower case letters?")
     ifnumber = confirm("Would you like your password to contain numbers?")
+  }
 
     // setting a minimum number for the specified characters
     
