@@ -27,12 +27,13 @@ function generatePassword(){
     window.alert("Your new password must be between 8 and 128 characters")
     generatePassword()
   } 
-  
+
+  //ensures the user input is a number
   else if (!Number.isInteger(i)) {
     window.alert("Please enter a valid number")
     generatePassword()
   }
-
+  //if input is acceptable, move on to the set of confirms
   else {
     ifspecial = confirm("Would you like your password to contain special characters?")
     ifupper = confirm("Would you like your password to contain upper case letters?")
@@ -40,12 +41,12 @@ function generatePassword(){
     ifnumber = confirm("Would you like your password to contain numbers?")
   }
 
-    // setting a minimum number for the specified characters
-    
+    //setting a minimum number for the specified characters, aswell as an empty 'newpass' array that will store the content of our password
     var characters = 0;
     var newpass = []
-
-    while(characters < i){
+  
+  //this "while loop" adds selected criteria to the 'newpass' array above until it's quantity reaches the input value^^
+  while(characters < i){
 
       var randomspecial = specialchar[randomchoice(specialchar.length)]
       var randomupper = uppercase[randomchoice(uppercase.length)]
@@ -67,12 +68,13 @@ function generatePassword(){
     if (ifnumber) {
       newpass.push(randomnumber);
       characters++;
-    }}
-
+    }
+  }
+  //joins the newpass array under a unified string value, ultimately giving the user their newly generated password
     newpass = newpass.join("")
     return newpass
   
-  }
+}
   
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -97,7 +99,6 @@ generateBtn.addEventListener("click", writePassword);
 - Whether or not the user wants numeric characters
 - Whether or not the user wants numeric characters
 - Whether or not the user wants numeric characters
-
 -use array of lower case, upper case, and characters, etc
 
 NOTE: use if else statements and boolean values to establish what type of password they want to generate
